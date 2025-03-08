@@ -1,4 +1,13 @@
-	/* Reset some default styles */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institution Website</title>
+  <link rel="stylesheet" href="Styles.css">
+  <style>
+  
+	/* Reset default styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,167 +19,318 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-bottom: 60px; /* Space for the footer */
+  padding-bottom: 60px; /* Space for footer */
   background: linear-gradient(to right, #fbc2eb, #a6c1ee); /* Gradient background */
   color: #333;
-  padding-top: 10%; /* Space for fixed header */
 }
 
-/* Header Section */
+/* Header */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 15%;
-  background-color: #4caf50; /* Bright green */
+  height: 100px;
+  background-color: #4caf50;
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Drop shadow */
+  justify-content: space-between;
+  padding: 0 15px;
   z-index: 1000;
 }
 
-.header-content {
-  display: flex;
-  align-items: center;
-}
-
 .logo {
-  width: 50px;
-  height: 50px;
-  margin-right: 15px;
+  width: 40px;
+  height: 40px;
 }
 
 .institution-name {
-  font-size: 2.5em;
+  font-size: 1.5em;
   font-weight: bold;
-  letter-spacing: 1px;
 }
 
-/* Main Wrapper with Tiles and Main Content */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Wrapper for main content */
 .wrapper {
   display: flex;
-  height: 100%; /* Ensuring the wrapper takes up the remaining height */
+  flex-wrap: wrap;
+  margin-top: 0;
 }
 
-/* Description Section (Tiles) */
+/* Sidebar (Tiles Section) */
 .description {
-  width: 25%; /* 25% of the width for the tiles */
+  width: 25%;
   height: 100%;
+  min-width: 250px;
   padding: 20px;
-  background-color: #fff3e6; /* Light peach color */
+  background-color: #fff3e6;
   border-right: 2px solid #e6e6e6;
   overflow-y: auto;
 }
 
 .tiles-container {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
 .tile {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
+  background-color: #e3f2fd;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  background-color: #e3f2fd; /* Light blue background */
+  transition: transform 1s ease, box-shadow 0.3s ease;
 }
 
 .tile h3 {
   font-size: 1.2em;
   margin-bottom: 10px;
-  color: #333;
-}
-
-.tile a {
-  text-decoration: none;
-  color: #1976d2;
-  font-weight: bold;
-}
-
-.tile a:hover {
-  text-decoration: underline;
-  color: #0d47a1;
 }
 
 .tile ul {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-}
-
-.tile:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: none;
 }
 
 .tile:hover ul {
-  max-height: 300px;
+  display: block;
 }
 
-/* Main Content Section */
+/* Main Content */
 main {
-  display: flex;
-  height: relative; 
-  width: 75%; /* 100% - 25% for the tiles */
+  flex: 1;
+  width: 75%;
   height: 100%;
-  padding: 40px;
-  background-color:  #FFFDee;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #FFFDee;
   border-radius: 8px;
   overflow-y: auto;
 }
 
-/* Footer Section */
+/* Responsive iFrame */
+iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 568px;
+  border: none;
+}
+
+/* Footer */
 footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   background-color: #333;
   color: white;
-  padding: 0px 0;
   text-align: center;
-  z-index: 1000;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
 }
 
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 
-.social-media a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #fff;
-}
+  .menu-toggle {
+    display: block;
+  }
 
-.social-media a:hover {
-  color: #ff4081; /* Pink hover effect */
-}
+  .description {
+    width: 100%;
+    display: none;
+  }
 
-.contact-info p {
-  margin: 5px 0;
-  color: #bbb;
+  .description.active {
+    display: block;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  main {
+    width: 100%;
+  }
 }
-#side-box {
-    position: fixed;
-    right: 10px;
-    top: 100px;
-    width: 960px;
-    background: #f8f9fa;
-    padding: 10px;
-    border: 1px solid #ddd;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-	background-color:  #FFFDee;
-           -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
- 
-}
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Toggle menu for mobile
+      const menuToggle = document.querySelector('.menu-toggle');
+      const sidebar = document.querySelector('.description');
+
+      menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
+      });
+
+      // Expand tile sections
+      document.querySelectorAll('.tile h3').forEach(tile => {
+        tile.addEventListener('click', function() {
+          let ul = this.nextElementSibling;
+          ul.style.display = ul.style.display === "block" ? "none" : "block";
+        });
+      });
+    });
+
+    function PLink(url) {
+      document.getElementById('content-frame').src = url;
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <img src="logo.png" alt="Institution Logo" class="logo">
+      <h1 class="institution-name">Your Institution</h1>
+      <span class="menu-toggle">☰</span>
+    </div>
+  </header>
+
+  <!-- Main Wrapper -->
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <section class="description">
+      <div class="tiles-container">
+        <div class="tile">
+          <h3><a href="MainSeven.html">Daily Current Affairs</a></h3>
+          <ul>
+            <li><a href="today-affairs.html">Today’s Affairs</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Quizzes</a></h3>
+          <ul>
+			<li><a href="general-quiz.html">Daily Current affairs Quiz</a></li>
+            <li><a href="general-quiz.html">General Quiz</a></li>
+			<li><a href="general-quiz.html">Aptitude Quiz</a></li>
+			<li><a href="general-quiz.html">Reasoning quiz</a></li>
+			<li><a href="general-quiz.html">General Science quiz</a></li>
+			<li><a href="general-quiz.html">Indian Polity Quiz</a></li>
+			<li><a href="general-quiz.html">Indian Economy Quiz</a></li>
+			<li><a href="general-quiz.html">Geography Quiz</a></li>
+			<li><a href="general-quiz.html">Indian History Quiz</a></li>
+			<li><a href="general-quiz.html">General English Quiz</a></li>
+			
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Notes and Material</a></h3>
+          <ul>
+            <li><a href="general-quiz.html">Current affairs </a></li>
+			<li><a href="general-quiz.html">Aptitude </a></li>
+			<li><a href="general-quiz.html">Reasoning</a></li>
+			<li><a href="general-quiz.html">General Science </a></li>
+			<li><a href="general-quiz.html">Indian Polity </a></li>
+			<li><a href="general-quiz.html">Indian Economy</a></li>
+			<li><a href="general-quiz.html">Geography </a></li>
+			<li><a href="general-quiz.html">Indian History </a></li>
+			<li><a href="general-quiz.html">General English </a></li>
+			
+          </ul>
+        </div>
+       
+        <div class="tile">
+          <h3><a href="MainSeven.html">MCQs</a></h3>
+          <ul>
+            <li><a href="general-quiz.html">Current affairs </a></li>
+			<li><a href="general-quiz.html">Aptitude </a></li>
+			<li><a href="general-quiz.html">Reasoning</a></li>
+			<li><a href="general-quiz.html">General Science </a></li>
+			<li><a href="general-quiz.html">Indian Polity </a></li>
+			<li><a href="general-quiz.html">Indian Economy</a></li>
+			<li><a href="general-quiz.html">Geography </a></li>
+			<li><a href="general-quiz.html">Indian History </a></li>
+			<li><a href="general-quiz.html">General English</a></li>
+			
+          </ul>
+        </div>
+		<div class="tile">
+          <h3><a href="MainSeven.html">Notification Details</a></h3>
+          <ul>
+            <li><a onclick="PLink('SecuredTextPage.html')">UPSC</a></li>
+            <li><a href="event-notifications.html">Staff Selection Commision</a></li>
+            <li><a onclick="PLink('RRBGroupD2025.html')">Railway Recruitment</a></li>
+            <li><a href="event-notifications.html">BANK Jobs</a></li>
+            <li><a href="event-notifications.html">POSTAL Jobs</a></li>
+            <li><a href="event-notifications.html">DEFENCE Recruitment</a></li>
+            <li><a href="event-notifications.html">Publick Sector Units</a></li>
+            <li><a href="event-notifications.html">APPSC</a></li>
+            <li><a href="event-notifications.html">TGPSC</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Syllabus Details</a></h3>
+          <ul>
+            <li><a href="general-quiz.html">Current affairs </a></li>
+			<li><a href="general-quiz.html">Aptitude </a></li>
+			<li><a href="general-quiz.html">Reasoning</a></li>
+			<li><a href="general-quiz.html">General Science </a></li>
+			<li><a href="general-quiz.html">Indian Polity </a></li>
+			<li><a href="general-quiz.html">Indian Economy</a></li>
+			<li><a href="general-quiz.html">Geography </a></li>
+			<li><a href="general-quiz.html">Indian History </a></li>
+			<li><a href="general-quiz.html">General English</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Important Dates</a></h3>
+          <ul>
+            <li><a onclick="PLink('SecuredTextPage.html')">UPSC</a></li>
+            <li><a href="event-notifications.html">Staff Selection Commision</a></li>
+            <li><a onclick="PLink('RRBGroupD2025.html')">Railway Recruitment</a></li>
+            <li><a href="event-notifications.html">BANK Jobs</a></li>
+            <li><a href="event-notifications.html">POSTAL Jobs</a></li>
+            <li><a href="event-notifications.html">DEFENCE Recruitment</a></li>
+            <li><a href="event-notifications.html">Publick Sector Units</a></li>
+            <li><a href="event-notifications.html">APPSC</a></li>
+            <li><a href="event-notifications.html">TGPSC</a></li>
+          </ul>
+        </div>
+        
+   <!--     <div class="tile">
+          <h3><a href="MainSeven.html">Test Series/Mock Tests</a></h3>
+          <ul>
+            <li><a href="online-test.html">Online Test</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Documents and Notes</a></h3>
+          <ul>
+            <li><a href="pdf-notes.html">PDF Notes</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="#">Video Tutorials</a></h3>
+          <ul>
+            <li><a href="subject-video.html">Subject-wise Videos</a></li>
+          </ul>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Main Content -->
+	
+    <main>
+      
+      <iframe id="content-frame" src="about:blank"></iframe>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Your Institution. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
