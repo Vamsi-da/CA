@@ -22,7 +22,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 10%;
+  height: 100px;
   background-color: #4caf50; /* Bright green */
   color: white;
   display: flex;
@@ -34,7 +34,7 @@ header {
 
 .header-content {
   display: flex;
-  align-items: center;
+  align-items: left;
 }
 
 .logo {
@@ -57,7 +57,7 @@ header {
 
 /* Description Section (Tiles) */
 .description {
-  width: 25%; /* 25% of the width for the tiles */
+  width: 240px; /* 25% of the width for the tiles */
   height: 100%;
   padding: 20px;
   background-color: #fff3e6; /* Light peach color */
