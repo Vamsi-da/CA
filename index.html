@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institution Website</title>
+  <link rel="stylesheet" href="StylesSeven.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const tiles = document.querySelectorAll('.tile');
+
+      tiles.forEach(tile => {
+        tile.addEventListener('mouseenter', function() {
+          const subsections = tile.querySelector('ul');
+          if (subsections) {
+            subsections.style.maxHeight = subsections.scrollHeight + "px";
+          }
+          tile.style.transform = "scale(1.05)";
+        });
+
+        tile.addEventListener('mouseleave', function() {
+          const subsections = tile.querySelector('ul');
+          if (subsections) {
+            subsections.style.maxHeight = "0";
+          }
+          tile.style.transform = "scale(1)";
+        });
+      });
+    });
+	
+	function PLink(url) {
+            document.getElementById('content-frame').src = url;
+        }
+	
+  </script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header-content">
+      <img src="logo.png" alt="Institution Logo" class="logo">
+      <h1 class="institution-name">Your Institution Name</h1>
+    </div>
+  </header>
+
+  <!-- Main Wrapper with Tiles and Main Content -->
+  <div class="wrapper">
+    <!-- Description Section (Tiles) -->
+    <section class="description">
+      <div class="tiles-container">
+        <div class="tile">
+          <h3><a href="MainSeven.html">Notification Details</a></h3>
+          <ul>
+            <li><a onclick="PLink('SecuredTextPage.html')">UPSC</a></li>
+            <li><a href="event-notifications.html">Staff Selection Commision</a></li>
+            <li><a onclick="PLink('RRBGroupD2025.html')">Railway Recruitment</a></li>
+            <li><a href="event-notifications.html">BANK Jobs</a></li>
+            <li><a href="event-notifications.html">POSTAL Jobs</a></li>
+            <li><a href="event-notifications.html">DEFENCE Recruitment</a></li>
+            <li><a href="event-notifications.html">Publick Sector Units</a></li>
+            <li><a href="event-notifications.html">APPSC</a></li>
+            <li><a href="event-notifications.html">TGPSC</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Syllabus Details</a></h3>
+          <ul>
+            <li><a href="subject1-syllabus.html">Subject 1</a></li>
+            <li><a href="subject2-syllabus.html">Subject 2</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Important Dates</a></h3>
+          <ul>
+            <li><a href="exam-dates.html">Exam Dates</a></li>
+            <li><a href="event-dates.html">Event Dates</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Daily Current Affairs</a></h3>
+          <ul>
+            <li><a href="today-affairs.html">Today’s Affairs</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Quizzes</a></h3>
+          <ul>
+            <li><a href="general-quiz.html">General Quiz</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Notes and Material</a></h3>
+          <ul>
+            <li><a href="study-material.html">Study Material</a></li>
+          </ul>
+        </div>
+       
+        <div class="tile">
+          <h3><a href="MainSeven.html">MCQs</a></h3>
+          <ul>
+            <li><a href="subject-mcqs.html">Subject-wise MCQs</a></li>
+          </ul>
+        </div>
+   <!--     <div class="tile">
+          <h3><a href="MainSeven.html">Test Series/Mock Tests</a></h3>
+          <ul>
+            <li><a href="online-test.html">Online Test</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="MainSeven.html">Documents and Notes</a></h3>
+          <ul>
+            <li><a href="pdf-notes.html">PDF Notes</a></li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3><a href="#">Video Tutorials</a></h3>
+          <ul>
+            <li><a href="subject-video.html">Subject-wise Videos</a></li>
+          </ul>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <main>
+      <div class="main-content">
+        <h2>Welcome to Our Institution</h2>
+      <!--  <p>Here, we will display the content for each subsection when clicked.</p>*/
+     /*   <h2>Related Info</h2>*/ -->
+    <iframe id="content-frame" class="Side-box" src="about:blank" width="900" height="400" frameborder="0"><
+
+          <!-- Subsection content will appear here dynamically based on user interaction -->
+			<a href="#"> Click Here</a></iframe>
+</aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Your Institution Name. All Rights Reserved.</p>
+      <div class="social-media">
+        <a href="https://facebook.com">Facebook</a>
+        <a href="https://twitter.com">Twitter</a>
+        <a href="https://instagram.com">Instagram</a>
+      </div>
+      <div class="contact-info">
+     
+        <p>Email: info@yourinstitution.com</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
