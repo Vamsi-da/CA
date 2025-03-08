@@ -57,7 +57,7 @@ header {
 
 /* Description Section (Tiles) */
 .description {
-  width: 240px; /* 25% of the width for the tiles */
+  width: 720px; /* 25% of the width for the tiles */
   height: 100%;
   padding: 20px;
   background-color: #fff3e6; /* Light peach color */
