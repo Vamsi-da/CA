@@ -112,13 +112,14 @@ header {
 
 .tile:hover ul {
   max-height: 300px;
+  max-width: 900px;
 }
 
 /* Main Content Section */
 main {
   display: flex;
   height: relative; 
-  width: 75%; /* 100% - 25% for the tiles */
+  width: relative; /* 100% - 25% for the tiles */
   height: 100%;
   padding: 40px;
   background-color:  #FFFDee;
