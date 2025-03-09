@@ -165,16 +165,16 @@ footer {
     .controls {	
 			text-align: center;
 			background: #FFFDee;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
 			transition: height 0.3s ease;
-            border-radius: 5px;
+            border-radius: 2px;
             cursor: pointer;
 			 padding: 2px;
             display: none;
         }
 		 .content {
 	
-            padding: 5px;
+            padding: 2px;
             display: none;
 			text-align: center;
         }
@@ -192,7 +192,7 @@ footer {
         }
         th, td {
           border: 1px solid black; /* Sets border for table cells */
-            padding: 2px;
+            padding: 1px;
             text-align: center;
 			cursor: pointer; /* Changes cursor to pointer on hover */
         }
@@ -210,5 +210,5 @@ footer {
 table.center {
   margin-left: auto;
   margin-right: auto;
-	width: 200px;
+	width: 180px;
 }
