@@ -169,7 +169,7 @@ footer {
 			transition: height 0.3s ease;
             border-radius: 10px;
             cursor: pointer;
-			 padding: 5px;
+			 padding: 3px;
             display: none;
         }
 		 .content {
@@ -184,7 +184,7 @@ footer {
         }
         table {
 		text-align: center;
-            width: 100%;
+            width: 220px;
 		background: #FFFDee;
             border-collapse: collapse;
 			cursor: pointer;
