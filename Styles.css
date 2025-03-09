@@ -59,7 +59,7 @@ header {
 .description {
   width: 25%; /* 25% of the width for the tiles */
   height: 100%;
-  padding: 15px;
+  padding: 20px;
   background-color: #fff3e6; /* Light peach color */
   border-right: 2px solid #e6e6e6;
   overflow-y: auto;
@@ -68,7 +68,7 @@ header {
 .tiles-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
+  gap: 20px;
 }
 
 .tile {
@@ -182,7 +182,7 @@ footer {
             display: block;
         }
         table {
-        
+            width: auto;
 			background: #FFFDee;
             border-collapse: collapse;
 			cursor: pointer;
