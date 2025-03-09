@@ -171,7 +171,7 @@ footer {
             display: none;
         }
 		 .content {
-			 width: 40px;
+	
             padding: 5px;
             display: none;
 			text-align: center;
@@ -180,7 +180,7 @@ footer {
         .tile:hover .content {
             display: block;
         }
-        .table {
+        table {
 		text-align: center;
             width: auto;
 		background: #FFFDee;
@@ -188,7 +188,7 @@ footer {
 			cursor: pointer;
 			
         }
-        .th, .td {
+        th, td {
           border: 1px solid black; /* Sets border for table cells */
             padding: 5px;
             text-align: center;
