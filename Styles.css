@@ -184,7 +184,7 @@ footer {
         }
         table {
 		text-align: center;
-            width: 200px;
+            
 		background: #FFFDee;
             border-collapse: collapse;
 			cursor: pointer;
@@ -192,7 +192,7 @@ footer {
         }
         th, td {
           border: 1px solid black; /* Sets border for table cells */
-            padding: 4px;
+            padding: 2px;
             text-align: center;
 			cursor: pointer; /* Changes cursor to pointer on hover */
         }
