@@ -158,6 +158,8 @@ footer {
   margin: 5px 0;
   color: #bbb;
 }
+
+
     
     .controls {	
 			text-align: center;
@@ -170,6 +172,7 @@ footer {
             display: none;
         }
 		 .content {
+			 width: 40px;
             padding: 5px;
             display: none;
 			text-align: center;
@@ -179,8 +182,8 @@ footer {
             display: block;
         }
         table {
-            width: 75%;
-		background: #FFFDee;
+            width: auto;
+			background: #FFFDee;
             border-collapse: collapse;
 			cursor: pointer;
 			
