@@ -184,7 +184,7 @@ footer {
         }
         table {
 		text-align: center;
-            width: align;
+            width: 100%;
 		background: #FFFDee;
             border-collapse: collapse;
 			cursor: pointer;
