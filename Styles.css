@@ -197,6 +197,7 @@ footer {
 			cursor: pointer; /* Changes cursor to pointer on hover */
         }
         th {
+	    width: 14%;
             background: #007bff;
             color: white;
 			cursor: pointer; /* Changes cursor to pointer on hover */
