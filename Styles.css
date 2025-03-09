@@ -197,8 +197,8 @@ footer {
 			cursor: pointer; /* Changes cursor to pointer on hover */
         }
       tr {
-	      font-size: 8px;
-
+	      font-size: 7px;
+              width: auto;
       }
         th {
 	    width: 14%;
