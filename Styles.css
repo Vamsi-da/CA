@@ -196,6 +196,10 @@ footer {
             text-align: center;
 			cursor: pointer; /* Changes cursor to pointer on hover */
         }
+      tr {
+	      font-size: 9px;
+
+      }
         th {
 	    width: 14%;
             background: #007bff;
