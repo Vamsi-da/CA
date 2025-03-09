@@ -57,7 +57,7 @@ header {
 
 /* Description Section (Tiles) */
 .description {
-  width: 25%; /* 25% of the width for the tiles */
+  width: 15%; /* 25% of the width for the tiles */
   height: 100%;
   padding: 20px;
   background-color: #fff3e6; /* Light peach color */
@@ -75,6 +75,7 @@ header {
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 10px;
+  text-align: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -118,13 +119,12 @@ header {
 main {
   display: flex;
   height: relative; 
-  width: 75%; /* 100% - 25% for the tiles */
-  height: 100%;
+  width: 85%; /* 100% - 25% for the tiles */
+  
   padding: 40px;
   background-color:  #FFFDee;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  overflow-y: auto;
 }
 
 /* Footer Section */
@@ -174,3 +174,50 @@ footer {
             -ms-user-select: none;
  
 }
+
+
+
+    
+    .controls {	
+			text-align: center;
+			background: #FFFDee;
+            margin-bottom: 10px;
+			transition: height 0.3s ease;
+            border-radius: 10px;
+            cursor: pointer;
+			 padding: 10px;
+            display: none;
+        }
+		 .content {
+            padding: 10px;
+            display: none;
+			text-align: center;
+        }
+
+        .tile:hover .content {
+            display: block;
+        }
+        table {
+            width: 100%;
+			background: #FFFDee;
+            border-collapse: collapse;
+			cursor: pointer;
+			
+        }
+        th, td {
+          border: 3px solid black; /* Sets border for table cells */
+            padding: 8px;
+            text-align: center;
+			cursor: pointer; /* Changes cursor to pointer on hover */
+        }
+        th {
+            background: #007bff;
+            color: white;
+			cursor: pointer; /* Changes cursor to pointer on hover */
+        }
+        td:hover {
+            background: #ddd;
+            cursor: pointer;
+			cursor: pointer; /* Changes cursor to pointer on hover */
+        }
+	
