@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World! </h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -49,19 +60,11 @@
         <div class="tile" id="daily-affairs-tile">
 		<h3><a href="#">Daily Current Affairs</a></h3>
         
-        <div class="Content">
-            <select id="year"></select>
-            <select id="month"></select>
-        </div>
-        <table class"center" width="25%">
-            <thead>
-                <tr>
-                    <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
-                </tr>
-            </thead>
-            <a><tbody id="calendar-body"></tbody></a>
-        </table>
-    </div>
+         <label for="datePicker">Select a date:</label>
+    <input type="date" id="datePicker">
+    <button onclick="storeDate()">Save Date</button>
+    
+    <p id="storedDate"></p>
 
 
         
@@ -191,62 +194,39 @@
   <footer>
     <p>&copy; 2025 Your Institution. All Rights Reserved.</p>
   </footer>
-    <script>
-        const yearSelect = document.getElementById("year");
-        const monthSelect = document.getElementById("month");
-        const calendarBody = document.getElementById("calendar-body");
-
-        function populateYearAndMonth() {
-            const currentYear = new Date().getFullYear();
-            for (let i = currentYear - 10; i <= currentYear + 10; i++) {
-                let option = document.createElement("option");
-                option.value = i;
-                option.textContent = i;
-                if (i === currentYear) option.selected = true;
-                yearSelect.appendChild(option);
+        <script>
+        function storeDate() {
+            let selectedDate = document.getElementById("datePicker").value;
+            if (selectedDate) {
+                localStorage.setItem("savedDate", selectedDate);
+                displayStoredDate(selectedDate);
+            } else {
+                alert("Please select a date first.");
             }
-
-            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            months.forEach((month, index) => {
-                let option = document.createElement("option");
-                option.value = index;
-                option.textContent = month;
-                if (index === new Date().getMonth()) option.selected = true;
-                monthSelect.appendChild(option);
-            });
         }
 
-        function generateCalendar(year, month) {
-            calendarBody.innerHTML = "";
-            let firstDay = new Date(year, month, 1).getDay();
-            let daysInMonth = new Date(year, month + 1, 0).getDate();
-            let row = document.createElement("tr");
-
-            for (let i = 0; i < firstDay; i++) {
-                let cell = document.createElement("td");
-                row.appendChild(cell);
+        function displayStoredDate(date) {
+            let dateObj = new Date(date);
+            let day = String(dateObj.getDate()).padStart(2, '0');
+            let month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            let year = dateObj.getFullYear();
+            let formattedDate = `${day}${month}${year}`;
+            document.getElementById("storedDate").innerText = "Stored Date: " + formattedDate;
+            
+            // Check if the date is 10/03/2025 and open the URL
+            if (formattedDate === "10032025") {
+                window.location.href = "https://music.youtube.com/";
             }
-            for (let day = 1; day <= daysInMonth; day++) {
-                if (row.children.length === 7) {
-                    calendarBody.appendChild(row);
-                    row = document.createElement("tr");
-                }
-                let cell = document.createElement("td");
-                cell.textContent = day;
-                cell.onclick = function PLink() {
-                let pageUrl = `daily_current_affairs/2025/march/${year}_${month + 1}_${day}.html`;
-				document.getElementById('content-frame').src = pageUrl;
-                };
-                row.appendChild(cell);
-            }
-            calendarBody.appendChild(row);
         }
 
-        populateYearAndMonth();
-        generateCalendar(yearSelect.value, parseInt(monthSelect.value));
-
-        yearSelect.addEventListener("change", () => generateCalendar(yearSelect.value, parseInt(monthSelect.value)));
-        monthSelect.addEventListener("change", () => generateCalendar(yearSelect.value, parseInt(monthSelect.value)));
+        // Load stored date on page load
+        window.onload = function() {
+            let savedDate = localStorage.getItem("savedDate");
+            if (savedDate) {
+                document.getElementById("datePicker").value = savedDate;
+                displayStoredDate(savedDate);
+            }
+        }
     </script>
 </body>
 </html>
