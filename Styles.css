@@ -126,6 +126,11 @@ main {
   border-radius: 8px;
 }
 
+.tile:hover .hidden-content{
+	display: block;
+}
+
+
 /* Footer Section */
 footer {
   position: fixed;
