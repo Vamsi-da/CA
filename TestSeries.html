@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Test Page</title>
+	<link rel="stylesheet" href="TestSeries.css">
+	
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const tiles = document.querySelectorAll('.tile');
+
+      tiles.forEach(tile => {
+        tile.addEventListener('mouseenter', function() {
+          const subsections = tile.querySelector('ul');
+          if (subsections) {
+            subsections.style.maxHeight = subsections.scrollHeight + "px";
+          }
+          tile.style.transform = "scale(1.05)";
+        });
+
+        tile.addEventListener('mouseleave', function() {
+          const subsections = tile.querySelector('ul');
+          if (subsections) {
+            subsections.style.maxHeight = "0";
+          }
+          tile.style.transform = "scale(1)";
+        });
+      });
+    });
+	
+	function PLink(url) {
+            document.getElementById('content-frame').src = url;
+        }
+	
+  </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+			background: #FFFDee; /* Gradient background */
+			color: #333;
+        }
+        /* Disable text selection */
+        * {
+            user-select: none;
+        }
+
+        /* Prevent right-click menu */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        /* Styling for the page */
+        .content {
+            margin: 10px;
+            padding: 10px;
+          /*  border: 1px solid #ccc;*/
+        }
+    </style>
+</head>
+<body>
+<p>This content is restricted from copying, right-clicking, and text selection</p><br><br>
+
+  <!-- Main Wrapper with Tiles and Main Content -->
+  <div class="wrapper">
+    <!-- Description Section (Tiles) -->
+    <section class="description">
+		<div class="content">
+			<h1>Online Practice Questions</h1>
+				----------------------------- <br>
+			<div> <p> <h1>Please select a topic to practice questions</h2></p> </div> 
+		</div>
+
+		<div class="tiles-container">
+			<div class="tile">
+			<h3><a href="#">Quizzes</a></h3>
+			<ul>
+				<li><a href="SiteUnderMaintenance.html">Daily Current affairs Quiz</a></li>
+				<li><a href="OnlineTestPage.html">General Quiz</a></li>
+<!--				<li><a href="SiteUnderMaintenance.html">Aptitude Quiz</a></li>
+				<li><a href="SiteUnderMaintenance.html">Reasoning quiz</a></li>
+				<li><a href="SiteUnderMaintenance.html">General Science quiz</a></li>
+				<li><a href="SiteUnderMaintenance.html">Indian Polity Quiz</a></li>
+				<li><a href="SiteUnderMaintenance.html">Indian Economy Quiz</a></li>
+				<li><a href="SiteUnderMaintenance.html">Geography Quiz</a></li>
+				<li><a href="SiteUnderMaintenance.html">Indian History Quiz</a></li>
+				<li><a href="SiteUnderMaintenance.html">General English Quiz</a></li>
+	-->		
+			</ul>
+        </div>
+</div>
+</section>
+<script>
+    // Disable right-click (context menu)
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert("Right-click is disabled on this page.");
+    });
+
+    // Disable text selection
+    document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+    });
+
+    // Disable keyboard shortcuts like Ctrl+C, Ctrl+U, Ctrl+Shift+I
+    document.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 'i')) {
+            e.preventDefault();
+            alert("Copying, viewing source, and developer tools are disabled.");
+        }
+    });
+
+    // Prevent images and other media from being saved via right-click
+    document.querySelectorAll('img').forEach(function(img) {
+        img.oncontextmenu = function() {
+            return false; // Prevent right-click on images
+        };
+    });
+
+</script>
+</div>
+</body>
+</html>

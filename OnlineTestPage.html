@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Test Page</title>
+	<link rel="stylesheet" href="OnlineTestPage.css">
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+			background: #FFFDee; /* Gradient background */
+			color: #333;
+        }
+        /* Disable text selection */
+        * {
+            user-select: none;
+        }
+
+        /* Prevent right-click menu */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        /* Styling for the page */
+        .content {
+            margin: 50px;
+            padding: 20px;
+          /*  border: 1px solid #ccc;*/
+        }
+	</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Multiple Choice Test</h1>
+
+    <!-- Timer Display -->
+    <div class="timer" id="timer">Time Left: 10:00</div>
+
+    <!-- Questions and Choices -->
+    <form id="quizForm">
+        <!-- Question 1 -->
+        <div class="question" id="question1">
+            <p>1. What is the capital of France?</p>
+            <ul class="choices">
+                <li><input type="radio" name="q1" value="a"> A) London</li>
+                <li><input type="radio" name="q1" value="b"> B) Paris</li>
+                <li><input type="radio" name="q1" value="c"> C) Rome</li>
+                <li><input type="radio" name="q1" value="d"> D) Berlin</li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question" id="question2">
+            <p>2. Which planet is known as the Red Planet?</p>
+            <ul class="choices">
+                <li><input type="radio" name="q2" value="a"> A) Earth</li>
+                <li><input type="radio" name="q2" value="b"> B) Mars</li>
+                <li><input type="radio" name="q2" value="c"> C) Venus</li>
+                <li><input type="radio" name="q2" value="d"> D) Jupiter</li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question" id="question3">
+            <p>3. Who developed the theory of relativity?</p>
+            <ul class="choices">
+                <li><input type="radio" name="q3" value="a"> A) Isaac Newton</li>
+                <li><input type="radio" name="q3" value="b"> B) Albert Einstein</li>
+                <li><input type="radio" name="q3" value="c"> C) Nikola Tesla</li>
+                <li><input type="radio" name="q3" value="d"> D) Galileo Galilei</li>
+            </ul>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="button-container">
+            <button type="button" id="nextButton" onclick="nextQuestion()">Next</button>
+            <button type="button" id="submitButton" onclick="submitQuiz()" style="display:none;">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+// Timer function
+let timeLeft = 600; // 10 minutes in seconds
+let timerElement = document.getElementById("timer");
+
+function startTimer() {
+    let interval = setInterval(function() {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        timerElement.textContent = `Time Left: ${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(interval);
+            alert("Time's up! The quiz will be submitted automatically.");
+            submitQuiz();
+        }
+    }, 1000);
+}
+startTimer();
+
+// Variables for question tracking
+let currentQuestion = 1;
+const totalQuestions = 3;
+
+function showQuestion(questionNum) {
+    // Hide all questions
+    for (let i = 1; i <= totalQuestions; i++) {
+        document.getElementById(`question${i}`).style.display = 'none';
+    }
+
+    // Show the current question
+    document.getElementById(`question${questionNum}`).style.display = 'block';
+
+    // If it's the last question, show the submit button
+    if (questionNum === totalQuestions) {
+        document.getElementById("nextButton").style.display = 'none';
+        document.getElementById("submitButton").style.display = 'inline-block';
+    } else {
+        document.getElementById("nextButton").style.display = 'inline-block';
+        document.getElementById("submitButton").style.display = 'none';
+    }
+}
+
+// Show the first question initially
+showQuestion(currentQuestion);
+
+// Move to the next question
+function nextQuestion() {
+    currentQuestion++;
+    showQuestion(currentQuestion);
+}
+
+// Handling quiz submission and scoring
+function submitQuiz() {
+    let score = 0;
+    let penalty = 0;
+    let form = document.getElementById("quizForm");
+
+    // Correct answers for the questions (1-based index for choices)
+    let correctAnswers = {
+        q1: "b",
+        q2: "b",
+        q3: "b"
+    };
+
+    // Calculate score
+    for (let i = 1; i <= totalQuestions; i++) {
+        let selected = form.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) {
+            if (selected.value === correctAnswers[`q${i}`]) {
+                score++;
+            } else {
+                penalty += (1 / 3);
+            }
+        }
+    }
+
+    // Adjust the final score with penalty
+    score -= penalty;
+
+    // Show the result and terminate the page
+    alert(`Your score is: ${score.toFixed(2)} out of ${totalQuestions}`);
+
+    // Close the page after submission or time expiration
+    window.close(); // Closes the current window
+    // If `window.close()` doesn't work (due to browser restrictions), you can use:
+    // window.location.href = "about:blank"; // Redirect to a blank page
+}
+
+// If the user tries to leave the page before completion, alert them
+window.onbeforeunload = function() {
+    return "Are you sure you want to leave the page? Your progress may be lost.";
+};
+</script>
+
+</body>
+</html>
+<script>
+    // Disable right-click (context menu)
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert("Right-click is disabled on this page.");
+    });
+
+    // Disable text selection
+    document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+    });
+
+    // Disable keyboard shortcuts like Ctrl+C, Ctrl+U, Ctrl+Shift+I
+    document.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 'i')) {
+            e.preventDefault();
+            alert("Copying, viewing source, and developer tools are disabled.");
+        }
+    });
+
+    // Prevent images and other media from being saved via right-click
+    document.querySelectorAll('img').forEach(function(img) {
+        img.oncontextmenu = function() {
+            return false; // Prevent right-click on images
+        };
+    });
+
+</script>
+
+</body>
+</html>

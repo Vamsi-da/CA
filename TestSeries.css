@@ -1,0 +1,80 @@
+/* Reset some default styles */
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee); /* Gradient background */
+  color: #333;
+  }
+
+
+/* Main Wrapper with Tiles and Main Content */
+.wrapper {
+  display: flex;
+  height: 100%; /* Ensuring the wrapper takes up the remaining height */
+}
+
+/* Description Section (Tiles) */
+.description {
+  width: 100%; /* 25% of the width for the tiles */
+  height: 100%;
+  padding: 20px;
+  background-color: #fff3e6; /* Light peach color */
+  border-right: 2px solid #e6e6e6;
+  overflow-y: auto;
+}
+
+.tiles-container {
+  display: grid;
+  /*grid-template-columns: 1fr; */
+  gap: 20px;
+}
+
+.tile {
+	align-content: center;
+	align-content: center;
+	width: 25%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  background-color: #e3f2fd; /* Light blue background */
+}
+
+.tile h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.tile a {
+  text-decoration: none;
+  color: #1976d2;
+  font-weight: bold;
+}
+
+.tile a:hover {
+  text-decoration: underline;
+  color: #0d47a1;
+}
+
+.tile ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tile:hover ul {
+  max-height: 100%;
+}
