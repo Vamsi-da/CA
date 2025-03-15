@@ -56,9 +56,9 @@ header {
 
 /* Description Section (Tiles) */
 .description {
-  width: 25%;
+  width: 28%;
   height: 100%;
-  padding: 20px;
+  padding: 10px;
   background-color: #fff3e6;
   border-right: 2px solid #e6e6e6;
   overflow-y: auto;
@@ -73,7 +73,7 @@ header {
 .tile {
   background-color: #e3f2fd;
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -122,7 +122,7 @@ header {
 /* Main Content Section */
 main {
   flex-grow: 1;
-  width: 74%;
+  width: 72%;
   padding: 20px;
   background-color: #fffdee;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
