@@ -1,4 +1,3 @@
-/* Reset some default styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +9,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-bottom: 60px; /* Space for the footer */
-  background: linear-gradient(to right, #fbc2eb, #a6c1ee); /* Gradient background */
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee);
   color: #333;
-  padding-top: 10%; /* Space for fixed header */
 }
 
 /* Header Section */
@@ -22,13 +19,13 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 9%;
-  background-color: #4caf50; /* Bright green */
+  height: 60px; /* Fixed height */
+  background-color: #4caf50;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Drop shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
@@ -38,29 +35,31 @@ header {
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
-  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 .institution-name {
-  font-size: 2.5em;
+  font-size: 1.5em;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
-/* Main Wrapper with Tiles and Main Content */
+/* Main Wrapper */
 .wrapper {
   display: flex;
-  height: 100%; /* Ensuring the wrapper takes up the remaining height */
+  flex-wrap: wrap; /* Allows elements to stack on small screens */
+  margin-top: 60px; /* Offset for fixed header */
+  flex-grow: 1;
 }
 
 /* Description Section (Tiles) */
 .description {
-  width: 25%; /* 25% of the width for the tiles */
+  width: 25%;
   height: 100%;
   padding: 20px;
-  background-color: #fff3e6; /* Light peach color */
+  background-color: #fff3e6;
   border-right: 2px solid #e6e6e6;
   overflow-y: auto;
 }
@@ -68,28 +67,29 @@ header {
 .tiles-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 10px;
 }
 
 .tile {
-  background-color: #fff;
+  background-color: #e3f2fd;
   border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
+  overflow: hidden;  
   background-color: #e3f2fd; /* Light blue background */
 }
+
 /* Hide tiles when hovered */
         .tile:hover ~ .tile {
             opacity: 0;
         }
+
 .tile h3 {
   font-size: 1.2em;
   margin-bottom: 10px;
-  color: #333;
 }
 
 .tile a {
@@ -111,28 +111,24 @@ header {
 
 .tile:hover {
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .tile:hover ul {
   max-height: 300px;
 }
 
+
 /* Main Content Section */
 main {
-  display: flex;
-  height: relative; 
-  width: 75%; /* 100% - 25% for the tiles */
-  padding: 40px;
-  background-color:  #FFFDee;
+  flex-grow: 1;
+  width: 75%;
+  padding: 20px;
+  background-color: #fffdee;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  min-height: calc(100vh - 120px); /* Adjusted for header/footer */
 }
-
-.tile:hover .hidden-content{
-	display: block;
-}
-
 
 /* Footer Section */
 footer {
@@ -141,75 +137,56 @@ footer {
   width: 100%;
   background-color: #333;
   color: white;
-  padding: 0px 0;
+  padding: 10px 0;
   text-align: center;
   z-index: 1000;
 }
 
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .description {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #e6e6e6;
+  }
+
+  main {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .institution-name {
+    font-size: 1.2em;
+  }
+
+  .tile {
+    font-size: 0.9em;
+  }
 }
 
-.social-media a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #fff;
+@media (max-width: 480px) {
+  header {
+    height: 50px;
+  }
+
+  .institution-name {
+    font-size: 1em;
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tile {
+    padding: 8px;
+  }
+
+  main {
+    padding: 10px;
+  }
 }
-
-.social-media a:hover {
-  color: #ff4081; /* Pink hover effect */
-}
-
-.contact-info p {
-  margin: 5px 0;
-  color: #bbb;
-}
-
-
-    
-    .controls {	
-			text-align: center;
-			background: #FFFDee;
-            margin-bottom: 10px;
-			transition: height 0.3s ease;
-            border-radius: 10px;
-            cursor: pointer;
-			 padding: 5px;
-            display: none;
-        }
-		 .content {
-			 width: 40px;
-            padding: 5px;
-            display: none;
-			text-align: center;
-        }
-
-        .tile:hover .content {
-            display: block;
-        }
-        table {
-            width: auto;
-			background: #FFFDee;
-            border-collapse: collapse;
-			cursor: pointer;
-			
-        }
-        th, td {
-          border: 1px solid black; /* Sets border for table cells */
-            padding: 5px;
-            text-align: center;
-			cursor: pointer; /* Changes cursor to pointer on hover */
-        }
-        th {
-            background: #007bff;
-            color: white;
-			cursor: pointer; /* Changes cursor to pointer on hover */
-        }
-        td:hover {
-            background: #ddd;
-            cursor: pointer;
-			cursor: pointer; /* Changes cursor to pointer on hover */
-        }
-	
