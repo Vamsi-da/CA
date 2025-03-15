@@ -190,7 +190,8 @@ footer {
     padding: 10px;
   }
 table {
-            width: auto;
+            width: 100%;
+	height: auto;
 			background: #FFFDee;
             border-collapse: collapse;
 			cursor: pointer;
