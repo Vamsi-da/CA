@@ -189,4 +189,29 @@ footer {
   main {
     padding: 10px;
   }
-}
+table {
+            width: auto;
+			background: #FFFDee;
+            border-collapse: collapse;
+			cursor: pointer;
+			text-align:center;
+			content: center;
+			
+        }
+        th, td {
+			border: 2px solid black; /* Sets border for table cells */
+            padding: 6px;
+            text-align: center;
+			cursor: pointer; /* Changes cursor to pointer on hover */
+        }
+        th {
+            background: #007bff;
+			padding: 6px;
+            color: white;
+			cursor: pointer; /* Changes cursor to pointer on hover */
+        }
+        td:hover {
+            background: #ddd;
+            cursor: pointer;
+			cursor: pointer; /* Changes cursor to pointer on hover */
+        }
