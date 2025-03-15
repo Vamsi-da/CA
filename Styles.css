@@ -60,7 +60,7 @@ header {
   height: 100%;
   padding: 10px;
   background-color: #fff3e6;
-  border-right: 2px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
   overflow-y: auto;
 }
 
