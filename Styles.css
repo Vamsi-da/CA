@@ -122,7 +122,7 @@ header {
 /* Main Content Section */
 main {
   flex-grow: 1;
-  width: 75%;
+  width: 74%;
   padding: 20px;
   background-color: #fffdee;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
