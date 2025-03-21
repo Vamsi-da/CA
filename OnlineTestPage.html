@@ -168,6 +168,7 @@ function submitQuiz() {
 
     // Close the page after submission or time expiration
     window.close(); // Closes the current window
+	window.location.href = "about:blank";
     // If `window.close()` doesn't work (due to browser restrictions), you can use:
     // window.location.href = "about:blank"; // Redirect to a blank page
 }
