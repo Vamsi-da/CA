@@ -16,19 +16,82 @@
             user-select: none;
         }
 
-        /* Prevent right-click menu */
+        /* Prevent right-click menu 
         body {
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
         }
-        
-        /* Styling for the page */
+        */
+       
+
+
+
+	    body {
+		    -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            background-color:  #fff; /* Cream texture background */
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+	     /* Styling for the page */
         .content {
             margin: 50px;
             padding: 20px;
           /*  border: 1px solid #ccc;*/
         }
+	    
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5dc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2d2d2d;
+        }
+        .question {
+            display: none; /* Hide all questions initially */
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .choices {
+            list-style: none;
+            padding: 1;
+        }
+        .choices li {
+            margin: 10px 0;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            text-align: center;
+        }
+    
 	</style>
 </head>
 <body>
