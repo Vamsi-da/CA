@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restrict Copy Data Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+			background: #FFFDee; /* Gradient background */
+			color: #333;
+        }
+        /* Disable text selection */
+        * {
+            user-select: none;
+        }
+
+        /* Prevent right-click menu */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        /* Styling for the page */
+        .content {
+            margin: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+		.section {
+      padding: 20px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      display: none; /* initially hidden */
+    }
+    .section.active {
+      display: block; /* show when active */
+    }
+    </style>
+</head>
+<body>
+This is a page of secured text which we cannot copy or select using mouse or shift button in the keyboard
+<div class="content">
+    <h1>Hello World</h1>
+    <p>This content is restricted from copying, right-clicking, and text selection.</p>
+
+<!-- This is the demo of the CA page loading with calender -->
+
+  <div id="2025413" class="section">This is Section 1</div>
+  <div id="2025414" class="section">This is Section 1</div>
+  <div id="2025415" class="section">This is Section 2</div>
+  <div id="2025416" class="section">This is Section 3</div>
+
+  <script>
+    // On load, show only the targeted section
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+          document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+          target.classList.add('active');
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  </script>
+
+</div>
+
+<script>
+    // Disable right-click (context menu)
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert("Right-click is disabled on this page.");
+    });
+
+    // Disable text selection
+    document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+    });
+
+    // Disable keyboard shortcuts like Ctrl+C, Ctrl+U, Ctrl+Shift+I
+    document.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 'i')) {
+            e.preventDefault();
+            alert("Copying, viewing source, and developer tools are disabled.");
+        }
+    });
+
+    // Prevent images and other media from being saved via right-click
+    document.querySelectorAll('img').forEach(function(img) {
+        img.oncontextmenu = function() {
+            return false; // Prevent right-click on images
+        };
+    });
+
+</script>
+
+</body>
+</html>
