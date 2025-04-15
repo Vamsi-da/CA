@@ -426,7 +426,7 @@ footer {
                 let cell = document.createElement("td");
                 cell.textContent = day;
                 cell.onclick = function PLink() {
-                let pageUrl = `./${year}${month + 1}${day}.html`;
+                let pageUrl = `./CA.html#${year}${month + 1}${day}`;
 				document.getElementById('content-frame').src = pageUrl;
                 };
                 row.appendChild(cell);
