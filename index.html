@@ -378,7 +378,74 @@ footer {
       <iframe id="content-frame" src="about:blank" width="100%" height="100%"></iframe>
     </main>
   </div>
+<div>
+   <h1>Retrieve Content from Another Page and Open in New Tab</h1>
 
+  <label for="url">Enter local webpage filename (e.g. "page.html"):</label>
+  <input type="text" id="url" placeholder="Enter filename here" />
+
+  <label for="divId">Enter the ID of the division:</label>
+  <input type="text" id="divId" placeholder="Enter division ID" />
+
+  <button onclick="fetchDivContent()">Generate Link</button>
+
+  <div id="content">
+    <p>The content of the division will appear here.</p>
+  </div>
+
+  <script>
+    function fetchDivContent() {
+      // Get the local file name and the division ID
+      const url = document.getElementById('url').value;
+      const divId = document.getElementById('divId').value;
+      
+      if (!url || !divId) {
+        alert('Please enter both the filename and the division ID.');
+        return;
+      }
+
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to load page');
+          }
+          return response.text();
+        })
+        .then(html => {
+          // Create a temporary div to parse the HTML content
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = html;
+
+          // Get the content from the division by its ID
+          const divContent = tempDiv.querySelector(`#${divId}`);
+
+          if (divContent) {
+            // Create a new link dynamically and set its content
+            const newWindowContent = `
+              <html>
+                <head><title>Content from ${url}</title></head>
+                <body>
+                  <h1>Content from ${url} (ID: ${divId})</h1>
+                  <div>${divContent.innerHTML}</div>
+                </body>
+              </html>
+            `;
+            // Create a new Blob with the content and open it in a new window
+            const newWindow = window.open();
+            newWindow.document.write(newWindowContent);
+            newWindow.document.close();
+          } else {
+            document.getElementById('content').innerHTML = `<p>Division with ID "${divId}" not found in ${url}.</p>`;
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('content').innerHTML = `<p>Error: ${error.message}</p>`;
+        });
+    }
+  </script>
+	<a herf="CA.html" id>CA</a>
+</div>
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Your Institution. All Rights Reserved.</p>
